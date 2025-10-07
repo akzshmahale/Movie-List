@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a New Movie</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        form { display: flex; flex-direction: column; max-width: 500px; }
+        form p { display: flex; flex-direction: column; }
+        button { margin-top: 15px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Add a New Movie</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Movie</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'movie_list' %}">Back to Movie List</a>
+</body>
+</html>
